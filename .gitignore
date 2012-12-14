@@ -1,0 +1,5 @@
+*.pyc
+coderunner.c
+*.so
+*.o
+build/
