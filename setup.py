@@ -2,10 +2,12 @@ from distutils.core import setup
 from distutils.extension import Extension
 from Cython.Distutils import build_ext
 
-import numpy as np
+from numpy.distutils.misc_util import get_info
+npm_info = get_info('npymath')
 
 ext_modules = [Extension("eg_log", ["eg_log.pyx"],
-                         include_dirs=[np.get_include()])]
+                         **npm_info)
+              ]
 
 setup(
   name = 'eg_log',
