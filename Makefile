@@ -1,7 +1,7 @@
 all : test
 
 test : ext
-	nosetests .
+	pytest .
 
 ext :
 	python setup.py build_ext -i

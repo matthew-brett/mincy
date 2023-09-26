@@ -4,7 +4,7 @@ from Cython.Distutils import build_ext
 
 import numpy as np
 
-ext_modules = [Extension("eg_log", ["eg_log.pyx"],
+ext_modules = [Extension("sum_uint8", ["sum_uint8.pyx"],
                          include_dirs=[np.get_include()])]
 
 setup(
