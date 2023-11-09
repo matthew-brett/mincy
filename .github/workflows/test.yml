@@ -22,7 +22,7 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Set Numpy version
         run: |
-          np_dep=$(python get_numpy_depends.py ${{ matrix.python }})
+          np_dep=$(python get_numpy_version.py ${{ matrix.python }})
           echo "BUILD_DEPENDS=$np_dep" >> $GITHUB_ENV
       - name: Show var
         run: echo $BUILD_DEPENDS
