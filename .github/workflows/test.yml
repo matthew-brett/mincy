@@ -1,0 +1,25 @@
+name: A test
+
+env:
+  REPO_DIR: nipy
+
+jobs:
+  build:
+    name: ${{ matrix.python }}
+    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        python: [
+          "3.11",
+          "3.12",
+        ]
+    steps:
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Set Numpy version
+        run: |
+          np_dep=$(python get_numpy_depends.py ${{ matrix.python }})
+          echo "BUILD_DEPENDS=$np_dep" >> $GITHUB_ENV
+      - name: Show var
+        run: echo $BUILD_DEPENDS
