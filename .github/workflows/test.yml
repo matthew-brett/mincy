@@ -30,4 +30,4 @@ jobs:
           np_dep=$(python ./get_numpy_version.py $MB_PYTHON_VERSION)
           echo "BUILD_DEPENDS=${BUILD_BASE} ${np_dep}" >> $GITHUB_ENV
       - name: Show var
-        run: echo "$env:BUILD_DEPENDS"
+        run: echo "$BUILD_DEPENDS"
