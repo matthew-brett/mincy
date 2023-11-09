@@ -9,7 +9,7 @@ env:
 jobs:
   build:
     name: ${{ matrix.python }}
-    runs-on: "windows-latest"
+    runs-on: "ubuntu-latest"
     strategy:
       matrix:
         python: [
@@ -27,7 +27,7 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Set Numpy version
         run: |
-          $np_dep = python .\get_numpy_version.py $env:MB_PYTHON_VERSION
-          echo "BUILD_DEPENDS=${env:BUILD_BASE} ${np_dep}" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
+          np_dep=$(python ./get_numpy_version.py $env:MB_PYTHON_VERSION)
+          echo "BUILD_DEPENDS=${BUILD_BASE} ${np_dep}" >> $GITHUB_ENV
       - name: Show var
         run: echo "$env:BUILD_DEPENDS"
