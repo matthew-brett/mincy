@@ -1,5 +1,8 @@
 name: A test
 
+on:
+  push:
+
 env:
   REPO_DIR: nipy
 
