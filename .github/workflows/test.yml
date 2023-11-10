@@ -32,3 +32,4 @@ jobs:
           lipo -archs `which python`
           python -m pip install packaging wheel
           python supported_wheels.py wheelhouse/*.whl
+          pip install --pre --find-links=./wheelhouse nipy
