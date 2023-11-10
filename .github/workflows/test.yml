@@ -31,5 +31,7 @@ jobs:
           which python
           lipo -archs `which python`
           python -m pip install packaging wheel
+          echo "Try 1"
           python supported_wheels.py wheelhouse/*.whl
-          pip install --pre --find-links=./wheelhouse nipy
+          echo "Try 2"
+          arch -arm64 python supported_wheels.py wheelhouse/*.whl
