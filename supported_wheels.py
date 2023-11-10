@@ -29,10 +29,13 @@ def main():
     supported = {
         (tag.interpreter, tag.abi, tag.platform) for tag in sys_tags()
     }
-    print('supported:', ';'.join(supported))
+    print('supported:')
+    for t in sorted(supported, key=lambda v : v[0]):
+        print(t)
+
     for fname in sys.argv[1:]:
         tags = set(tags_for(fname))
-        print('tags for', fname, ';'.join(tags))
+        print('tags for', fname, tags)
         if supported.intersection(tags):
             print(fname)
 
