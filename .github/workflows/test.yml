@@ -11,6 +11,7 @@ jobs:
     name: ${{ matrix.python }}
     runs-on: "macos-latest"
     strategy:
+      fail-fast: false
       matrix:
         python: [
           "3.11",
@@ -29,4 +30,5 @@ jobs:
         run: |
           which python
           lipo -archs `which python`
+          python -m pip install packaging wheel
           python supported_wheels.py wheelhouse/*.whl
