@@ -29,3 +29,4 @@ jobs:
         run: |
           which python
           lipo -archs `which python`
+          python supported_wheels.py wheelhouse/*.whl
